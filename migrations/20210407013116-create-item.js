@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      imageLink: {
+        type: Sequelize.STRING
+      },
       quantityOfPackage: {
         type: Sequelize.INTEGER
       },
