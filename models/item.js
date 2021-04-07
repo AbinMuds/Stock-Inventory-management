@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.profile.belongsTo(models.profile);
+      models.item.belongsTo(models.profile);
     }
   };
   item.init({
     name: DataTypes.STRING,
+    imageLink: DataTypes.STRING,
     quantityOfPackage: DataTypes.INTEGER,
     quantityOfitemsPerPackage: DataTypes.INTEGER,
     totalCP: DataTypes.INTEGER,
