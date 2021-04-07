@@ -35,7 +35,7 @@ router.post('/new', (req, res)=>{
         db.profile.create({
                 userId:user.id,
                 name: req.body.name,
-                imageLink: req.body.businessimg.name,
+                imageLink: req.body.businessimg,
                 description: req.body.description,
                 type: req.body.type
         }).then((newprofile) =>{
@@ -43,7 +43,7 @@ router.post('/new', (req, res)=>{
             console.log(newprofile)
             console.log('-----------------')
             user.addProfile(newprofile.dataValues.id).then(()=>{
-                res.redirect('/business/index')
+                res.redirect('/business')
             })
         }).catch((err) => {
             res.status(400).render('404')
@@ -52,23 +52,18 @@ router.post('/new', (req, res)=>{
     })
 })
 
-//Create Business route
-// router.post('/new' ,(req,res) => {
-//     res.send(req.body.businessimg.name)
-// })
-
-//Business Page
+//All items route
 router.get('/:id/show', (req,res) => {
     db.profile.findOne({
         where:{
             id: req.params.id
-        }
+        },
+        include : [db.item]
     }).then((profile)=>{
-        res.render(`business/show`,{profile:profile})
+        res.render("business/show",{items:profile.items,profile:profile})
     }).catch((error)=>{
         res.status(400).render('404')
     })
-})
-
+  })
 
 module.exports = router;
