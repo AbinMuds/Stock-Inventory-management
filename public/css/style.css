@@ -4,6 +4,21 @@ nav ul li {
   margin-right: .3em;
 }
 
-h1 {
-  color: chartreuse;
+.login, .signUp{
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+  margin-top: 10%;
+}
+.lform, .sform{
+  padding: 5%;
+  margin-top:10%;
+  margin: 0 auto;
+  align-items: center;
+  background: #fff;
+  max-width: 500px;
+  position: relative;
+  background-color: rgba(227, 227, 227, 0.4);;
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
 }
