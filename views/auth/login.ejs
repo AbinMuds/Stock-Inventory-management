@@ -1,9 +1,17 @@
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
+<div class="login">
+  <form action="/auth/login" method="POST" class="lform">
+    <h3 class="welcome-login-message">Welcome</h3>
+    <p class="welcome-login-sign-in">Please Sign In</p>
+    <div class="form-group">
+      <label for="auth-email"></label>
+      <input type="email" class="form-control" id="auth-email" name="email" aria-describedby="emailHelp" placeholder="Email address">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="auth-password"></label>
+      <input type="password" class="form-control" id="auth-password" name="password" placeholder="Password">
+    </div>
+    <button type="submit" id="login-button" class="btn btn-primary">Log In</button>
+  </form>
+</div>
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
-
-  <input type="submit" value="Log In">
-</form>
