@@ -19,20 +19,20 @@ router.get('/', (req,res) => {
   })
 
 // New Items route
-router.get('/new', (req, res) => {
-  res.render('items/new');
+router.get('/:id/new', (req, res) => {
+  res.render('items/new',{pid:req.params.id});
 });
 
 //Create Items route
-router.post('/new', (req, res)=>{
+router.post('/:id/new', (req, res)=>{
   db.profile.findOne({
       where:{
-          id: req.profile.id
+          id: req.params.id
       }
   }).then((profile)=>{
       db.item.create({
               name: req.body.name,
-              imageLink: req.body.itemimg.name,
+              imageLink: req.body.itemimg,
               quantityOfPackage: req.body.quantityOfPackage,
               quantityOfitemsPerPackage: req.body.quantityOfitemsPerPackage,
               totalCP: req.body.totalCP,
@@ -45,7 +45,7 @@ router.post('/new', (req, res)=>{
           console.log(newitem)
           console.log('-----------------')
           profile.addItem(newitem.dataValues.id).then(()=>{
-              res.redirect('/items/index')
+              res.redirect(`/business/${req.params.id}/show`)
           })
       }).catch((err) => {
           res.status(400).render('404')
