@@ -11,7 +11,11 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ 
+  limit: '50mb',
+  parameterLimit: 100000,
+  extended: true 
+ }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
 
@@ -46,11 +50,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
-
 app.use('/auth', require('./routes/auth'));
+app.use('/business',isLoggedIn, require('./routes/business'));
+app.use('/items',isLoggedIn, require('./routes/items'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 
