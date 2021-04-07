@@ -2,22 +2,6 @@ const express = require("express")
 const router = express.Router()
 const db = require("../models")
 
-//All items route
-router.get('/', (req,res) => {
-//   db.profile.findOne({
-//       where:{
-//           id: req.profile.id
-//       },
-//       include : [db.item]
-//   }).then((profile)=>{
-//       res.render("items/index",{items:profile.item,profile:profile})
-//   }).catch((error)=>{
-//       res.status(400).render('404')
-//   })
-// })
-    res.send("items")
-  })
-
 // New Items route
 router.get('/:id/new', (req, res) => {
   res.render('items/new',{pid:req.params.id});
@@ -53,7 +37,5 @@ router.post('/:id/new', (req, res)=>{
       })
   })
 })
-
-
 
 module.exports = router;
