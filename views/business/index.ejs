@@ -1,4 +1,17 @@
 <h1>Businesss</h1>
-<% profiles.forEach(profile => { %> 
-    <a href="/business/<%= profile.id %>/show "><%= profile.name %></a>
-<% }) %> 
+<div class="row">
+    <% profiles.forEach(profile => { %> 
+        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(99, 171, 204); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
+            <img src="businessImage/<%= profile.imageLink %>" alt="images">
+            <div class="info">
+            <p class="type"> <%= profile.type %> </p>
+            <p class= "date"> <%= profile.description %> </p>
+            <a class="name" href="/business/<%= profile.id %>"> <%= profile.name.toUpperCase() %>  </a>
+            <!-- delete button -->
+            <!-- <form method="POST" action="/bookmarks//?_method=DELETE" class="bookmark-dlt-btn">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form> -->
+            </div>
+        </div>
+    <% }) %> 
+</div>
