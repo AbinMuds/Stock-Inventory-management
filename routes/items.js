@@ -50,7 +50,7 @@ router.post('/:id/new', (req, res)=>{
 })
 
 //All items route
-router.get('/:id/', (req,res) => {
+router.get('/:id', (req,res) => {
     db.profile.findOne({
         where:{
             id: req.params.id
@@ -63,5 +63,21 @@ router.get('/:id/', (req,res) => {
         console.log(error)
     })
   })
+
+router.get('/:id/items/:pk',(req,res) =>{
+    db.profile.findOne({
+        where: {
+            id:req.params.id
+        },
+    }).then((profile) => {
+        db.item.findOne({
+            where: {
+                id: req.params.pk
+            },
+        }).then((item)=>{
+            res.render('items/show',{item:item,profile:profile})
+        })
+    })
+})
 
   module.exports = router;
