@@ -1,5 +1,5 @@
 <div class="business">
-  <form action="/business/new" method="POST" class="bform">
+  <form action="/business/new" method="POST" class="bform" enctype="multipart/form-data">
     <h3 class="welcome-login-message">Welcome</h3>
     <p class="welcome-login-sign-in">Start a Business</p>
     <div class="form-group">
@@ -8,7 +8,8 @@
     </div>
     <div>
       <label>Choose</label>
-      <input type="file" name="businessimg" class="filepond">
+      <input type="file" name="businessimg">
+      <!-- <input type="file" name="businessimg" class="filepond"> -->
     </div>
     <div class="form-group">
       <label for="description">Description</label>
