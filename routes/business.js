@@ -29,13 +29,20 @@ router.post('/new', (req, res)=>{
             id: req.user.id
         }
     }).then((user)=>{
-        console.log('-----------------')
-        console.log(user.id)
-        console.log('-----------------')
+        const businessimage = req.files.businessimg;
+
+        businessimage.mv('public/businessImage/' + businessimage.name, function(error){
+            if(error){
+                console.log("Could.t upload image")
+                console.log(error)
+            }else{
+                console.log("Image uploaded")
+            }
+        })
         db.profile.create({
                 userId:user.id,
                 name: req.body.name,
-                imageLink: req.body.businessimg,
+                imageLink: businessimage.name,
                 description: req.body.description,
                 type: req.body.type
         }).then((newprofile) =>{
@@ -51,19 +58,5 @@ router.post('/new', (req, res)=>{
         })
     })
 })
-
-//All items route
-router.get('/:id/show', (req,res) => {
-    db.profile.findOne({
-        where:{
-            id: req.params.id
-        },
-        include : [db.item]
-    }).then((profile)=>{
-        res.render("business/show",{items:profile.items,profile:profile})
-    }).catch((error)=>{
-        res.status(400).render('404')
-    })
-  })
 
 module.exports = router;
