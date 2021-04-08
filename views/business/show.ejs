@@ -1,5 +1,22 @@
 <h1>Business show page</h1>
-<a class="" href="/items/<%= profile.id %>/new">Add Items</a>
-<% items.forEach(item => { %> 
-    <p><%= item.name %> </p>
-<% }) %> 
+<a class="" href="/business/<%= profile.id %>/new">Add Items</a>
+<div class="row">
+    <% items.forEach(item => { %> 
+        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(99, 171, 204); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
+            <a class="name" href="#"> <%= item.name.toUpperCase() %> </a>
+            <img src="/itemimages/<%= item.imageLink %>" alt="images">
+            <div class="info">
+                <p class="">quantityOfPackage: <%= item.quantityOfPackage %> </p>
+                <p class="">quantityOfitemsPerPackage: <%= item.quantityOfitemsPerPackage %></p>
+                <p class=""> totalCP: <%= item.totalCP %></p>
+                <p class=""> sellingPricePerPackage: <%= item.sellingPricePerPackage %></p>
+                <p class="type">sellingPricePerItem:  <%= item.sellingPricePerItem %></p>
+                <p class="type">costPricePerPackage:  <%= item.costPricePerPackage %></p>
+                <!-- delete button -->
+                <!-- <form method="POST" action="/bookmarks//?_method=DELETE" class="bookmark-dlt-btn">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form> -->
+            </div>
+        </div>
+    <% }) %> 
+</div>
