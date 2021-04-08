@@ -96,6 +96,10 @@ img{
   color: rgb(211, 37, 37);
 }
 
+p:hover{
+  color:aquamarine;
+}
+
 .navbar{
   background-color: rgba(255,255,255,0.1) !important;
   box-shadow: 1px 1px 10px grey;
