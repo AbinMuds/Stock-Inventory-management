@@ -1,5 +1,5 @@
 <div class="items">
-    <form action="/items/<%= pid %>/new" method="POST" class="iform">
+    <form action="/business/<%= pid %>/new" method="POST" class="iform" enctype="multipart/form-data">
       <h3 class="welcome">Add Item</h3>
       <div class="form-group">
         <label for="name"></label>
@@ -7,30 +7,24 @@
       </div>
       <div class="form-group">
         <label for="itemimg">Choose Img</label>
-        <input type="file" class="form-control-file filepond" id="itemimg">
+        <input type="file" class="form-control-file" name="itemimg" id="itemimg">
       </div>
       <div class="form-group">
-        <label for="quantityOfPackage">QuantityOfPackage</label>
+        <label for="quantityOfPackage">Package Quantity: </label>
         <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage">
-      </div>
-      <div class="form-group">
-        <label for="quantityOfitemsPerPackage">quantityOfitemsPerPackage</label>
+        <label for="quantityOfitemsPerPackage">Total Items in Packages: </label>
         <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage">
       </div>
       <div class="form-group">
-        <label for="totalCP">totalCP</label>
+        <label for="totalCP">Total CP: </label>
         <input type="integer" class="form-control" id="totalCP" name="totalCP">
-      </div>
-      <div class="form-group">
-        <label for="sellingPricePerPackage">sellingPricePerPackage</label>
+        <label for="sellingPricePerPackage">SP per Package: </label>
         <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage">
       </div>
       <div class="form-group">
-        <label for="sellingPricePerItem">sellingPricePerItem</label>
+        <label for="sellingPricePerItem">SP per Item: </label>
         <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem">
-      </div>
-      <div class="form-group">
-        <label for="costPricePerPackage">costPricePerPackage</label>
+        <label for="costPricePerPackage">CP per Package: </label>
         <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage">
       </div>
       <button type="submit" id="login-button" class="btn btn-primary">Add</button>
