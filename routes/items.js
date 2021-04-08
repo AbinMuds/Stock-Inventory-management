@@ -14,9 +14,20 @@ router.post('/:id/new', (req, res)=>{
           id: req.params.id
       }
   }).then((profile)=>{
+        const itemimage = req.files.itemimg;
+
+        itemimage.mv('public/itemimages/' + itemimage.name, function(error){
+            if(error){
+                console.log("Could.t upload image")
+                console.log(error)
+            }else{
+                console.log("Image uploaded")
+            }
+        })
+        console.log(itemimage)
       db.item.create({
               name: req.body.name,
-              imageLink: req.body.itemimg,
+              imageLink: itemimage.name,
               quantityOfPackage: req.body.quantityOfPackage,
               quantityOfitemsPerPackage: req.body.quantityOfitemsPerPackage,
               totalCP: req.body.totalCP,
@@ -29,7 +40,7 @@ router.post('/:id/new', (req, res)=>{
           console.log(newitem)
           console.log('-----------------')
           profile.addItem(newitem.dataValues.id).then(()=>{
-              res.redirect(`/business/${req.params.id}/show`)
+              res.redirect(`/business/${req.params.id}`)
           })
       }).catch((err) => {
           res.status(400).render('404')
@@ -38,4 +49,19 @@ router.post('/:id/new', (req, res)=>{
   })
 })
 
-module.exports = router;
+//All items route
+router.get('/:id/', (req,res) => {
+    db.profile.findOne({
+        where:{
+            id: req.params.id
+        },
+        include : [db.item]
+    }).then((profile)=>{
+        res.render("business/show",{items:profile.items,profile:profile})
+    }).catch((error)=>{
+        res.status(400).render('404')
+        console.log(error)
+    })
+  })
+
+  module.exports = router;
