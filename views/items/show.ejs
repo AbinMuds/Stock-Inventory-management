@@ -1,0 +1,17 @@
+<h1>Items show page</h1>
+<div class=""style="background-color:rgb(218, 231, 236); border:1px solid rgb(109, 105, 105);">
+    <h3 class="name"><%= item.name.toUpperCase() %></h3>
+    <img src="/itemimages/<%= item.imageLink %>" alt="images">
+    <div class="info">
+        <p class="">Quantity of Package: <%= item.quantityOfPackage %> </p>
+        <p class="">Items per Package: <%= item.quantityOfitemsPerPackage %></p>
+        <p class=""> Total CP: <%= item.totalCP %></p>
+        <p class=""> SP per Package: <%= item.sellingPricePerPackage %></p>
+        <p class="type">SP per Item: <%= item.sellingPricePerItem %></p>
+        <p class="type">CP per Package: <%= item.costPricePerPackage %></p>
+        <!-- delete button -->
+        <!-- <form method="POST" action="/bookmarks//?_method=DELETE" class="bookmark-dlt-btn">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form> -->
+    </div>
+</div>
