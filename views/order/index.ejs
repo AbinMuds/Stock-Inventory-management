@@ -1,0 +1,13 @@
+<h1>Total orders</h1>
+<div class="row">
+    <% orders.forEach(order => { %> 
+        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98);">
+            <h3 class="name"><%= order.orderName.toUpperCase() %></h3>
+            <h4>Order Id NO: <%= order.id %> </h4>
+            <h4 class="name"> Order From:<%= order.orderFrom %> To <%= order.orderTo %> </h4>
+            <div class="buttons" style="display:flex;">
+                <a href="/order/<%= order.id %>"><button class="btn btn-info">VIEW</button></a>
+            </div>
+        </div>
+    <% }) %> 
+</div>

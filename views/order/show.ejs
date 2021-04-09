@@ -1,0 +1,11 @@
+<h1>Orders show page</h1>
+
+<p>Order id No: <%= order.id %> </p>
+<p><%= order.orderFrom %> TO <%= order.orderTo %> </p>
+
+<% items.forEach((item) => { %> 
+    <p><%= item.name %> </p>
+<% }) %> 
+
+
+
