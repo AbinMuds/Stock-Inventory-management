@@ -7,11 +7,13 @@
         <p class="">Items per Package: <%= item.quantityOfitemsPerPackage %></p>
         <p class=""> Total CP: <%= item.totalCP %></p>
         <p class=""> SP per Package: <%= item.sellingPricePerPackage %></p>
-        <p class="type">SP per Item: <%= item.sellingPricePerItem %></p>
-        <p class="type">CP per Package: <%= item.costPricePerPackage %></p>
-        <!-- delete button -->
-        <!-- <form method="POST" action="/bookmarks//?_method=DELETE" class="bookmark-dlt-btn">
+        <p class="">SP per Item: <%= item.sellingPricePerItem %></p>
+        <p class="">CP per Package: <%= item.costPricePerPackage %></p>
+        <form method="POST" action="/business/<%= profile.id %>/items/<%= item.id %>/?_method=DELETE" class="business-dlt-btn">
             <button class="btn btn-danger" type="submit">Delete</button>
-        </form> -->
+        </form>
+        <form method="GET" action="/business/<%= profile.id %>/items/edit/<%=item.id%>/?_method=PUT" class="p-2">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
     </div>
 </div>
