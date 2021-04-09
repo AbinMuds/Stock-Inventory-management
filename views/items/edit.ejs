@@ -1,0 +1,32 @@
+<div class="items">
+    <form action="/business/<%= pid %>/items/<%= itemId %>/?_method=PUT" method="POST" class="iform" enctype="multipart/form-data">
+      <h3 class="welcome">Add Item</h3>
+      <div class="form-group">
+        <label for="name"></label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Item Name" value="<%= item.name %>">
+      </div>
+      <div class="form-group">
+        <label for="itemimg">Choose Img</label>
+        <input type="file" class="form-control-file" name="itemimg" id="itemimg" value="<%= item.imageLink %>">
+      </div>
+      <div class="form-group">
+        <label for="quantityOfPackage">Package Quantity: </label>
+        <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage" value="<%= item.quantityOfPackage %>">
+        <label for="quantityOfitemsPerPackage">Total Items in Packages: </label>
+        <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage" value="<%= item.quantityOfitemsPerPackage %>">
+      </div>
+      <div class="form-group">
+        <label for="totalCP">Total CP: </label>
+        <input type="integer" class="form-control" id="totalCP" name="totalCP" value="<%= item.totalCP %>">
+        <label for="sellingPricePerPackage">SP per Package: </label>
+        <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage" value="<%= item.sellingPricePerPackage %>">
+      </div>
+      <div class="form-group">
+        <label for="sellingPricePerItem">SP per Item: </label>
+        <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem" value="<%= item.sellingPricePerItem %>">
+        <label for="costPricePerPackage">CP per Package: </label>
+        <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage" value="<%= item.costPricePerPackage %>">
+      </div>
+      <button type="submit" id="button" class="btn btn-primary">Edit</button>
+    </form>
+</div>
