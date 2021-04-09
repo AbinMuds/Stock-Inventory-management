@@ -1,17 +1,13 @@
 <h1>Businesss</h1>
 <div class="row">
     <% profiles.forEach(profile => { %> 
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(99, 171, 204); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
+        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
             <h3 class="name"><%= profile.name.toUpperCase() %></h3>
             <img src="businessImage/<%= profile.imageLink %>" alt="images">
             <div class="info">
-            <p class="type"> <%= profile.type %> </p>
+            <h4 class="type"> <%= profile.type %> </h4>
             <p class= "date"> <%= profile.description %> </p>
-            <!-- delete button -->
             <div class="buttons" style="display:flex;">
-                <form method="POST" action="/bookmarks//?_method=DELETE" class="bookmark-dlt-btn">
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
                 <a href="/business/<%= profile.id %>"><button class="btn btn-info">VIEW</button></a>
             </div>
             </div>
