@@ -5,6 +5,7 @@ const session = require('express-session');
 const flash = require("connect-flash")
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn')
+const methodOverride = require('method-override');
 const upload = require('express-fileupload')
 
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({ 
   limit: '50mb',
   parameterLimit: 100000,
