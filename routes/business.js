@@ -46,9 +46,6 @@ router.post('/new', (req, res)=>{
                 description: req.body.description,
                 type: req.body.type
         }).then((newprofile) =>{
-            console.log('-----------------')
-            console.log(newprofile)
-            console.log('-----------------')
             user.addProfile(newprofile.dataValues.id).then(()=>{
                 res.redirect('/business')
             })
@@ -56,6 +53,43 @@ router.post('/new', (req, res)=>{
             res.status(400).render('404')
             console.log(err)
         })
+    })
+})
+
+router.get('/:id/edit', (req,res) => {
+    db.profile.findOne({
+        where: {
+            id:req.params.id
+        }
+    }).then((profile)=> {
+        res.render('business/edit', {profile:profile})
+    })
+})
+
+router.put('/:id', (req,res) => {
+    const businessimage = req.files.businessimg;
+
+    businessimage.mv('public/businessImage/' + businessimage.name, function(error){
+        if(error){
+            console.log("Could.t upload image")
+            console.log(error)
+        }else{
+            console.log("Image uploaded")
+        }
+    })
+    db.profile.update(
+        {   
+            name: req.body.name,
+            imageLink: businessimage.name,
+            description: req.body.description,
+            type: req.body.type
+        },
+        {where: {id: req.params.id}}
+    ).then((updated)=>{
+        res.redirect(`/business`)
+    }).catch((err) => {
+        res.status(400).render('404')
+        console.log(err)
     })
 })
 
