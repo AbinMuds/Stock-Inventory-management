@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "inventory_test",
+    "database": "inventory",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "inventory_test_test",
+    "database": "inventory_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "inventory_test_production",
+    "database": "inventory_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
