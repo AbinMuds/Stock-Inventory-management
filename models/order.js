@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     orderName: DataTypes.STRING,
     complete: DataTypes.BOOLEAN,
     orderFrom: DataTypes.STRING,
-    orderTo: DataTypes.STRING
+    orderTo: DataTypes.STRING,
+    totalPrice: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'order',
