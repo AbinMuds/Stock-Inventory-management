@@ -3,7 +3,8 @@
 @import 'shared/fonts.css';
 @import 'shared/header.css';
 @import 'shared/buttons.css';
-/* @import 'shared/form.css';
+@import 'shared/form.css';
+/* 
 @import 'shared/author.css';
 @import 'shared/books.css'; */
 
@@ -12,6 +13,9 @@
   font-size: 20px;
   color: var(--color-text-light);
 }
+.navbar .navbar-toggler-icon{
+  background-image: url(https://i.stack.imgur.com/mSXoO.png)!important;
+  }
 
 body {
   background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
@@ -25,6 +29,14 @@ body {
 
 .inner-container {
   margin: 0 2rem;
+}
+
+label, h2, p, h3, input, th, tr, td{
+  color:cadetblue;
+}
+
+label{
+  font-size: 1em !important;
 }
 
 .page-header {
@@ -83,7 +95,7 @@ body {
   text-align: center;
 }
 
-.business, .items{
+/* .business, .items{
   margin: 0 auto;
   display: block;
   width: 90%;
@@ -100,7 +112,7 @@ body {
   background-color: rgba(227, 227, 227, 0.4);;
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
-}
+} */
 
 .form-group{
   display: flex;
@@ -125,7 +137,7 @@ img{
 
 .name{
   display: block;
-  color: black;
+  color: rgb(235, 225, 225);
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 2%;
 }
