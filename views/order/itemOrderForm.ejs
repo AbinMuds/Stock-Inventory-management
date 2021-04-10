@@ -1,15 +1,21 @@
 <div class="itemOrderForm">
     <form action="/order/items/<%= item.id %>" method="POST" class="ioform">
       <p class="welcome-login-sign-in">Add to order</p>
-      <div class="form-group">
-        <label for="orderQ"></label>
-        <input type="integer" class="form-control" id="orderQ" name="orderQ" placeholder="Quantity of items Packages: ">
+      <div class="form-row">
+        <div class="form-item">
+          <label for="orderQ">Quantity of Packages</label>
+          <input type="integer" class="form-control" id="orderQ" name="orderQ">
+        </div>
       </div>
       <input hidden type="integer" class="form-control" id="itemId" name="itemId" value="<%= item.id %>">
-      <div class="form-group">
-        <label for="orderId">Get orderId number from orderid showpage</label>
-        <input type="integer" class="form-control" id="orderId" name="orderId" placeholder="orderId: ">
+      <div class="form-row">
+        <div class="form-item">
+          <label for="orderId">Get order-Id number from order-Id showpage</label>
+          <input type="integer" class="form-control" id="orderId" name="orderId">
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
     </form>
 </div>

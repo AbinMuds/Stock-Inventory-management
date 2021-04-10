@@ -1,7 +1,7 @@
-<h1>Businesss</h1>
-<div class="row">
+<h2 class="page-header">Businesss</h2>
+<div class="business--large">
     <% profiles.forEach(profile => { %> 
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
+        <div class="business-child" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98)">
             <h3 class="name"><%= profile.name.toUpperCase() %></h3>
             <img src="businessImage/<%= profile.imageLink %>" alt="images">
             <div class="info">

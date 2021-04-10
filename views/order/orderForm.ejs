@@ -1,4 +1,4 @@
-<h1>Order is ready</h1>
+<h2 class="page-header">Order is ready</h2>
 <div class="">
     <form action="/order/<%= order.id %>/ready/?_method=PUT" method="POST" class="rform">
         <input hidden type="integer" class="form-control" id="totalPrice" name="totalPrice" value="<%= total_price %>">

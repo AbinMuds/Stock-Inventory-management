@@ -1,21 +1,24 @@
-<h1>Business show page</h1>
-<a class="" href="/business/<%= profile.id %>/new"><button class="btn btn-success">Add More Items</button></a>
-<div class="row">
+<h2 class="page-header">Business show page</h2>
+<a class="" href="/business/<%= profile.id %>/new"><button class="btn btn-primary">Add More Items</button></a>
+<div class="business-grid">
     <% items.forEach(item => { %> 
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(218, 231, 236); border:1px solid rgb(109, 105, 105);">
+        <div class="business-child" style="background-color:rgb(218, 231, 236); border:1px solid rgb(109, 105, 105);">
             <h3 class="name"><%= item.name.toUpperCase() %></h3>
             <img src="/itemimages/<%= item.imageLink %>" alt="images">
             <div class="info">
                 <p class="">Quantity of Package: <%= item.quantityOfPackage %> </p>
             </div>
-            <div class="buttons" style="display:flex;">
+            <div class="btn-row">
                 <a href="/business/<%= profile.id %>/items/<%= item.id %>"><button class="btn btn-info">VIEW</button></a>
                 <a href="/order/items/<%= item.id %>"><button class="btn btn-info">Add To Order</button></a>
             </div> 
         </div>
     <% }) %> 
 </div>
-<a href="/business/delete/<%= profile.id %> "><button class="btn btn-danger">Delete</button></a>
-<form method="GET" action="/business/<%= profile.id %>/edit/?_method=PUT" class="p-2">
-    <button type="submit" class="btn btn-primary">Edit</button>
-</form>
+<div class="brn-row">
+    <a href="/business/delete/<%= profile.id %> "><button class="btn btn-danger">Delete</button></a>
+    <form method="GET" action="/business/<%= profile.id %>/edit/?_method=PUT" class="p-2">
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
+
