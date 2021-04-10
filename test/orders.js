@@ -59,3 +59,24 @@
 // orderId: 1   =>linkage done
 // form action =/order/
 
+
+
+///Complete functionality
+    // we need to pass order.id and item.id to the routes 
+    // so in the routes 
+    // router.post(':id/:pk', (req,res)=>{
+    //     db.itemsOrders.findOne({
+    //         where: {
+    //             orderId: req.params.id,
+    //             itemId: req.params.pk
+    //         }
+    //     }).then((newi)=>{
+    //        let  total_price = null
+    //        new1.order.items.forEach((item) => {
+    //             total_price += item.Sp
+    //        })
+    //        new1.order.complete = true
+    //            res.render('order/billOfSale',{item,itemOrders,order})
+    //         console.log(totalPrice)
+    //     })
+    // })
