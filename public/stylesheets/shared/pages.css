@@ -1,0 +1,88 @@
+ :root {
+  --business-cover-width: 200px;
+  --business-cover-width-large: 325px;
+  --business-cover-aspect-ratio: 0.75;
+}
+
+.business-cover {
+  width: var(--business-cover-width);
+  height: calc(var(--business-cover-width) / var(--business-cover-aspect-ratio));
+} 
+
+/* .business-cover-large {
+  --business-cover-width: var(--business-cover-width-large);
+} */
+
+.business-grid {
+  display: grid;
+  justify-content: center;
+  padding:0.5em;
+  grid-gap: 1rem;
+  text-align: center;
+  grid-template-columns: repeat(auto-fill, var(--business-cover-width-large));
+}
+
+.business-child{
+  padding:1em;
+  text-align: center;
+  margin: 0.5em;
+}
+.business-large {
+  padding:0.5em;
+  gap: 2rem;
+}
+
+.order-grid{
+  display: grid;
+  justify-content: center;
+  padding:0.5em;
+  grid-gap: 1rem;
+  text-align: center;
+  grid-template-columns: repeat(auto-fill, var(--business-cover-width-large));
+}
+
+.order-grid > img{
+  width:100%;
+}
+
+.order-child{
+  padding:1em;
+  text-align: center;
+  margin: 0.5em;
+  font-size:20px;
+}
+
+/* .business-details {
+  display: flex;
+} */
+
+/* .business-details-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-self: flex-start;
+} */
+
+/* .business-details-grid {
+  display: grid;
+  align-content: flex-start;
+  align-items: center;
+  grid-gap: 1rem;
+  grid-template-columns: auto auto;
+} */
+
+/* .business-details-btn-grid {
+  display: grid;
+  justify-items: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-areas:
+    "edit delete"
+    "author author";
+  grid-gap: .5rem;
+  margin-top: .5rem;
+} */
+
+/* .business-details-author-button {
+  grid-area: author;
+  justify-self: stretch;
+} */
