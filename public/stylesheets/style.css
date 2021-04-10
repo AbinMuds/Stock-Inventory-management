@@ -95,25 +95,6 @@ label{
   text-align: center;
 }
 
-/* .business, .items{
-  margin: 0 auto;
-  display: block;
-  width: 90%;
-  margin-top: 10%;
-}
-.bform, .iform{
-  padding: 5%;
-  margin-top:10%;
-  margin: 0 auto;
-  align-items: center;
-  background: #fff;
-  max-width: 700px;
-  position: relative;
-  background-color: rgba(227, 227, 227, 0.4);;
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: center;
-} */
-
 .form-group{
   display: flex;
 }
