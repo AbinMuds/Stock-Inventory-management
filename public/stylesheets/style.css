@@ -4,9 +4,7 @@
 @import 'shared/buttons.css';
 @import 'shared/form.css';
 @import 'shared/pages.css';
-/* 
-@import 'shared/author.css';
-@import 'shared/books.css'; */
+@import 'shared/footer.css';
 
 :root {
   font-family: 'Gotham Rounded';
@@ -86,8 +84,10 @@ p:hover{
 }
 
 .d-block{
-  height: 700px;
+  height: 500px;
 }
+
+
 /* footer.page-footer {
   background: rgba(0, 0, 0, 0.2);
   margin-bottom: 0;
