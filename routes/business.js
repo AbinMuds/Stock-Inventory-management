@@ -47,6 +47,7 @@ router.post('/new', (req, res)=>{
                 type: req.body.type
         }).then((newprofile) =>{
             user.addProfile(newprofile.dataValues.id).then(()=>{
+                req.flash('success', 'Business created')
                 res.redirect('/business')
             })
         }).catch((err) => {
@@ -86,6 +87,7 @@ router.put('/:id', (req,res) => {
         },
         {where: {id: req.params.id}}
     ).then((updated)=>{
+        req.flash('success', 'Business details Updated')
         res.redirect(`/business`)
     }).catch((err) => {
         res.status(400).render('404')

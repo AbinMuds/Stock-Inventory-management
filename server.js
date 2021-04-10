@@ -7,6 +7,7 @@ const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn')
 const methodOverride = require('method-override');
 const upload = require('express-fileupload')
+const db = require('./models')
 
 const app = express();
 
@@ -54,9 +55,21 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/billOfSales',isLoggedIn, (req,res)=> {
+    db.order.findAll({
+      where: {
+        userId: req.user.id,
+        complete: true
+      }
+    }).then((orders) => {
+      res.render('billOfSale',{orders:orders})
+    })
+})
+
 app.use('/auth', require('./routes/auth'));
 app.use('/business',isLoggedIn, require('./routes/business'));
 app.use('/business', isLoggedIn, require('./routes/items'));
+app.use('/order',isLoggedIn, require('./routes/orders'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 

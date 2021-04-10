@@ -37,6 +37,7 @@ router.post('/:id/new', (req, res)=>{
               profileId: profile.id
       }).then((newitem) =>{
           profile.addItem(newitem.dataValues.id).then(()=>{
+              req.flash('success', 'Items created')
               res.redirect(`/business/${req.params.id}`)
           })
       }).catch((err) => {
@@ -86,6 +87,7 @@ router.delete('/:id', (req,res) => {
                 profileId: req.params.id
             }
         }).then((deleted)=>{
+            req.flash('success', 'Successfully deleted profile with its child items')
             res.redirect("/business")
         })
         }).catch((error)=>{
@@ -118,6 +120,7 @@ router.delete('/:id/items/:pk', (req,res) => {
             id:req.params.pk
         },
     }).then((deleted) => {
+        req.flash('success', 'Items deleted')
         res.redirect(`/business/${req.params.id}`)
     })
 })
@@ -158,6 +161,7 @@ router.put('/:id/items/:pk', (req,res)=>{
        },
        {where: {id:req.params.pk}}
    ).then((updated)=> {
+    req.flash('success', 'Items updated')
        res.redirect(`/business/${req.params.id}/items/${req.params.pk}`)
    }).catch((error)=>{
     res.status(400).render('404')
