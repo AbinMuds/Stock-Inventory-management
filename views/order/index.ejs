@@ -1,13 +1,24 @@
 <h2 class="page-header">Total orders</h2>
-<div class="order-grid">
-    <% orders.forEach(order => { %> 
-        <div class="order-child" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98);">
-            <h3 class="name"><%= order.orderName.toUpperCase() %></h3>
-            <p>Order Id NO: <%= order.id %> </p>
-            <p class="name"> Order From:<%= order.orderFrom %> To <%= order.orderTo %> </p>
-            <div class="buttons" style="display:flex;">
-                <a href="/order/<%= order.id %>"><button class="btn btn-info">VIEW</button></a>
-            </div>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <% orders.forEach(order => { %> 
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h3 class="name"><%= order.orderName.toUpperCase() %></h3>
+                            <p class="card-text">Order Id NO: <%= order.id %> </p>
+                            <p class="card-text"> Order From:<%= order.orderFrom %> To <%= order.orderTo %> </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="/order/<%= order.id %>"><button class="btn btn-info">VIEW</button></a>
+                                </div>
+                                <small class="text-muted"><%= order.createdAt.toDateString() %> </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %> 
         </div>
-    <% }) %> 
+    </div>
 </div>
