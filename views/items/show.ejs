@@ -1,19 +1,24 @@
-<h1>Items show page</h1>
-<div class=""style="background-color:rgb(218, 231, 236); border:1px solid rgb(109, 105, 105);">
-    <h3 class="name"><%= item.name.toUpperCase() %></h3>
-    <img src="/itemimages/<%= item.imageLink %>" alt="images">
-    <div class="info">
-        <p class="">Quantity of Package: <%= item.quantityOfPackage %> </p>
-        <p class="">Items per Package: <%= item.quantityOfitemsPerPackage %></p>
-        <p class=""> Total CP: <%= item.totalCP %></p>
-        <p class=""> SP per Package: <%= item.sellingPricePerPackage %></p>
-        <p class="">SP per Item: <%= item.sellingPricePerItem %></p>
-        <p class="">CP per Package: <%= item.costPricePerPackage %></p>
-        <form method="POST" action="/business/<%= profile.id %>/items/<%= item.id %>/?_method=DELETE" class="business-dlt-btn">
-            <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
-        <form method="GET" action="/business/<%= profile.id %>/items/edit/<%=item.id%>/?_method=PUT" class="p-2">
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
+<h3 class="name"><%= item.name.toUpperCase() %></h3>
+<div class="business-child"style="background-color:rgb(218, 231, 236); border:1px solid rgb(109, 105, 105);">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <img src="/itemimages/<%= item.imageLink %>" alt="images" style="height:100%;">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="info">
+                <p class="">Quantity of Package: <%= item.quantityOfPackage %> </p>
+                <p class="">Items per Package: <%= item.quantityOfitemsPerPackage %></p>
+                <p class=""> Total CP: <%= item.totalCP %></p>
+                <p class=""> SP per Package: <%= item.sellingPricePerPackage %></p>
+                <p class="">SP per Item: <%= item.sellingPricePerItem %></p>
+                <p class="">CP per Package: <%= item.costPricePerPackage %></p>
+                <form method="POST" action="/business/<%= profile.id %>/items/<%= item.id %>/?_method=DELETE" class="business-dlt-btn">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+                <form method="GET" action="/business/<%= profile.id %>/items/edit/<%=item.id%>/?_method=PUT" class="p-2">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

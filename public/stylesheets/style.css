@@ -1,0 +1,108 @@
+@import 'shared/variables.css';
+@import 'shared/fonts.css';
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+@import 'shared/form.css';
+@import 'shared/pages.css';
+@import 'shared/footer.css';
+
+:root {
+  font-family: 'Gotham Rounded';
+  font-size: 15px;
+  color: var(--color-text-light);
+}
+.navbar .navbar-toggler-icon{
+  background-image: url(https://i.stack.imgur.com/mSXoO.png)!important;
+  }
+
+body {
+  background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.inner-container {
+  margin: 0 2rem;
+}
+
+label, h2, p, h3, input, th, tr, td,.alert{
+  color:cadetblue;
+}
+
+label,.btn{
+  font-size: 1em !important;
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 500;
+  color:cadetblue;
+}
+
+.error-message {
+  color: hsl(var(--color-danger-hue), 100%, 50%);
+}
+
+.login, .signUp{
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+  margin-top: 10%;
+}
+.lform, .sform{
+  padding: 5%;
+  margin-top:10%;
+  margin: 0 auto;
+  align-items: center;
+  background: #fff;
+  max-width: 500px;
+  position: relative;
+  background-color: rgba(227, 227, 227, 0.4);;
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.form-group{
+  display: flex;
+}
+
+img{
+  width:100%;
+  height:50%;
+}
+
+.name:hover{
+  color: rgb(223, 130, 31);
+}
+
+p:hover{
+  color:rgb(17, 206, 77);
+}
+
+/* .d-block{
+  height: 500px;
+} */
+
+
+/* footer.page-footer {
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/images/background.jpg');
+} */
+
+/* @media only screen and (max-width: 600px) {
+  label, h2, h3, p, h3, input, th, tr, td{
+    font-size:var(--font-size);
+  }
+} */
+
+.display-4{
+  font-size:2em;
+}

@@ -1,13 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Inventory M</a>
+<nav class="header-nav navbar navbar-expand-lg navbar bg-blue ">
+    <a class="navbar-brand" href="/">Stock Pile</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
         <% if (!currentUser) {%>
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">LogIn</a>
@@ -17,13 +14,22 @@
           </li>
         <%} else { %>
           <li class="nav-item">
-            <a class="nav-link" href="/auth/logout">LogOut</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/business/new">Create Business</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/business">Busineess</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/order/new">Create Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/order">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/billOfSales">Bill Of Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/logout">LogOut</a>
           </li>
         <% } %>   
       </ul>

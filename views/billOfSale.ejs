@@ -1,0 +1,23 @@
+<section class="">
+    <h1 class="page-header" style="text-align: center;">Bill of Sales</h1>
+</section>
+
+<table style="width:100%">
+    <tr>
+      <th>Order Number</th>
+      <th>Order Name</th>
+      <th>Order From</th>
+      <th>Order To</th>
+      <th>Total Price</th>
+    </tr>
+    <% orders.forEach((order) => { %>
+        <tr>
+            <td><%= order.id %> </td>
+            <td><%= order.orderName %> </td>
+            <td><%= order.orderFrom %> </td>
+            <td><%= order.orderTo %> </td>
+            <td><%= order.totalPrice %> </td>
+        </tr>
+    <% }) %>  
+</table>
+

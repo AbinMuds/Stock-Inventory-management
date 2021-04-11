@@ -1,23 +1,25 @@
-<div class="business">
-    <form action="/business/<%= profile.id %>/?_method=PUT" method="POST" class="bform" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="name"></label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Business Name: " value="<%= profile.name %>">
-      </div>
-      <div>
-        <label name="businessimg">Choose</label>
-        <input type="file" name="businessimg" value="<%= profile.imageLink %>"><br/>
-        <span style="color:red;">We do not track your previous image so,Please provide it again</span>
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="3" name="description" placeholder="Description"><%= profile.description %></textarea>
-      </div>
-      <div class="form-group">
-        <label for="type"></label>
-        <input type="text" class="form-control" id="type" name="type" placeholder="Type" value="<%= profile.type %>">
-      </div>
-      <a href="/business">Cancel</a>
-      <button type="submit" id="button" class="btn btn-primary">Edit</button>
-    </form>
-</div>
+<form action="/business/<%= profile.id %>/?_method=PUT" method="POST" class="bform" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-item">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= profile.name %>">
+    </div>
+    <div class="form-item">
+      <label for="type">Type</label>
+      <input type="text" class="form-control" id="type" name="type" placeholder="Type" value="<%= profile.type %>">
+    </div>
+  </div>
+  <div>
+    <label name="businessimg">Image</label>
+    <input type="file" name="businessimg" value="<%= profile.imageLink %>"><br/>
+    <span style="color:red;">We do not track your previous image so,Please provide it again</span>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" rows="3" name="description" placeholder="Description"><%= profile.description %></textarea>
+    </div>
+  </div>
+  <a class="btn btn-danger" href="/business">Cancel</a>
+  <button type="submit" id="button" class="btn btn-primary">Edit</button>
+</form>

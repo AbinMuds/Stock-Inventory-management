@@ -1,16 +1,29 @@
-<h1>Businesss</h1>
-<div class="row">
-    <% profiles.forEach(profile => { %> 
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color:rgb(199, 215, 223); border:1px solid rgb(109, 98, 98);margin:10px; height:500px;width:100%;">
-            <h3 class="name"><%= profile.name.toUpperCase() %></h3>
-            <img src="businessImage/<%= profile.imageLink %>" alt="images">
-            <div class="info">
-            <h4 class="type"> <%= profile.type %> </h4>
-            <p class= "date"> <%= profile.description %> </p>
-            <div class="buttons" style="display:flex;">
-                <a href="/business/<%= profile.id %>"><button class="btn btn-info">VIEW</button></a>
-            </div>
-            </div>
+<h2 class="page-header">Businesss</h2>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <% profiles.forEach(profile => { %> 
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="businessImage/<%= profile.imageLink %>" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h3 class="name"><%= profile.name.toUpperCase() %></h3>
+                            <h4 class="type"> <%= profile.type %> </h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="/business/<%= profile.id %>"><button class="btn btn-info">VIEW</button></a>
+                                </div>
+                                <small class="text-muted"><%= profile.createdAt.toDateString() %></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %> 
         </div>
-    <% }) %> 
+    </div>
 </div>
+
+
+
+
+

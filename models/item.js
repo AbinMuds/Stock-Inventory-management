@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.item.belongsTo(models.profile);
+      models.item.belongsToMany(models.order, {through: "itemsOrders"})
     }
   };
   item.init({
