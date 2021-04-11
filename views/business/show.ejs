@@ -1,6 +1,5 @@
 <div class="album py-5 bg-light">
     <h2 class="page-header">Business show page</h2>
-    <a class="" href="/business/<%= profile.id %>/new"><button class="btn btn-primary">Add More Items</button></a>
     <div class="container">
         <div class="row">
             <% items.forEach(item => { %> 
@@ -11,17 +10,18 @@
                             <h3 class="name"><%= item.name.toUpperCase() %></h3>
                             <p class="card-text">Quantity of Package: <%= item.quantityOfPackage %> </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
+                                <div class="btn-group btn-row">
                                     <a href="/business/<%= profile.id %>/items/<%= item.id %>"><button class="btn btn-info">VIEW</button></a>
-                                    <a href="/order/items/<%= item.id %>"><button class="btn btn-info">Add To Order</button></a>
+                                    <a href="/order/items/<%= item.id %>"><button class="btn btn-info">Order</button></a>
                                 </div>
-                                <small class="text-muted"><%= item.createdAt.toDateString() %> </small>
                             </div>
+                            <small class="text-muted"><%= item.createdAt.toDateString() %> </small>
                         </div>
                     </div>
                 </div>
-            <% }) %> 
+            <% }) %>
         </div>
+        <a class="" href="/business/<%= profile.id %>/new"><button class="btn btn-primary">Add More Items</button></a>
     </div>
 </div>
 <div class="brn-row">

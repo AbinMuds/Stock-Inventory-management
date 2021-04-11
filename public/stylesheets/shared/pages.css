@@ -1,4 +1,4 @@
- :root {
+ /* :root {
   --business-cover-width: 200px;
   --business-cover-width-large: 325px;
   --business-cover-aspect-ratio: 0.75;
@@ -7,13 +7,13 @@
 .business-cover {
   width: var(--business-cover-width);
   height: calc(var(--business-cover-width) / var(--business-cover-aspect-ratio));
-} 
+}  */
 
 /* .business-cover-large {
   --business-cover-width: var(--business-cover-width-large);
 } */
 
-.business-grid {
+/* .business-grid {
   display: grid;
   justify-content: center;
   padding:0.5em;
@@ -50,7 +50,7 @@
   text-align: center;
   margin: 0.5em;
   font-size:20px;
-}
+} */
 
 /* .business-details {
   display: flex;

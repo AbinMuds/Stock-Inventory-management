@@ -12,8 +12,13 @@
                         <div class="card-body">
                             <h3 class="name"><%= item.name.toUpperCase() %></h3>
                             <p class="card-text">Quantity we have: <%= item.quantityOfPackage %> </p>
-                            <p class="card-text">Items per Package: <%= item.quantityOfitemsPerPackage %></p>
+                            <p class="card-text">Items You ordered: <%= item.dataValues.itemsOrders.dataValues.itemQuantity %> </p>
                             <p class="card-text"> SP per Package: <%= item.sellingPricePerPackage %></p>
+                            <div class="btn-row">
+                                <form method="POST" action="/order/<%= order.id %>/item/<%= item.id %>/delete/?_method=DELETE" class="business-dlt-btn">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -182,5 +182,23 @@ router.put('/:id/ready',(req,res)=> {
 //   })
 // })
 
+router.delete('/:pk/item/:id/delete' , (req, res) => {
+    db.itemsOrders.destroy({
+      where:{itemId: req.params.id}
+    }).then((deleted) => {
+        req.flash('success', 'Order Item deleted')
+        res.redirect(`/order/${req.params.pk}`)
+    })
+})
+
+router.delete('/:id/delete',(req, res) => {
+    db.order.destroy({
+      where:{id:req.params.id
+      }
+    }).then((deleted) => {
+      req.flash('success', 'Order deleted')
+      res.redirect(`/order`)
+    })
+})
 
 module.exports = router;

@@ -29,7 +29,7 @@ body {
   margin: 0 2rem;
 }
 
-label, h2, p, h3, input, th, tr, td{
+label, h2, p, h3, input, th, tr, td,.alert{
   color:cadetblue;
 }
 
@@ -96,3 +96,13 @@ p:hover{
   background-repeat: no-repeat;
   background-image: url('/images/background.jpg');
 } */
+
+/* @media only screen and (max-width: 600px) {
+  label, h2, h3, p, h3, input, th, tr, td{
+    font-size:var(--font-size);
+  }
+} */
+
+.display-4{
+  font-size:2em;
+}

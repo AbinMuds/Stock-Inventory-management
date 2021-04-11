@@ -24,6 +24,7 @@
 .btn-row {
   display: flex;
   align-items: flex-start;
+  margin:.1em;
 }
 
 .btn-row > * {
