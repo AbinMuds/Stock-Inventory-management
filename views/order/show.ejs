@@ -1,9 +1,9 @@
-<h2 class="page-header">Orders show page</h2>
 <div class="album py-5 bg-light">
     <div class="container">
         <h2 class="page-header">Orders show page</h2>
         <p>Order id No: <%= order.id %> </p>
-        <p><%= order.orderFrom %> TO <%= order.orderTo %> </p>
+        <p>Order From <%= order.orderFrom %></p>
+        <p>Business <%= order.orderTo %></p>
         <div class="row">
             <% items.forEach((item) => { %>
                 <div class="col-md-4">
@@ -15,15 +15,34 @@
                             <p class="card-text">Items You ordered: <%= item.dataValues.itemsOrders.dataValues.itemQuantity %> </p>
                             <p class="card-text"> SP per Package: <%= item.sellingPricePerPackage %></p>
                             <div class="btn-row">
-                                <form method="POST" action="/order/<%= order.id %>/item/<%= item.id %>/delete/?_method=DELETE" class="business-dlt-btn">
-                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
+                                <div class="business-dlt-btn">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">Delete</button>
+                                </div>
+                            </div>
+                              <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure to delete?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="POST" action="/order/<%= order.id %>/item/<%= item.id %>/delete/?_method=DELETE" class="business-dlt-btn">
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             <% }) %> 
         </div>
+        <a class="" href="/business"><button class="btn btn-primary">Order more</button></a>
     </div>
 </div>
 

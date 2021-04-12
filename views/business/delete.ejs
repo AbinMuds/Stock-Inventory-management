@@ -1,4 +1,6 @@
 <h2 class="page-header">Are you sure you want to delete? </h2>
 <form method="POST" action="/business/<%= profile.id %>/?_method=DELETE" class="business-dlt-btn">
+    <label for="business-name">Type business name: <%= profile.name %>  to Delete </label>
+    <input type="text" name="business-name" id="business-name" required>
     <button class="btn btn-danger" type="submit">Delete</button>
 </form>

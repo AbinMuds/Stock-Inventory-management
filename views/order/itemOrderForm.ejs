@@ -4,14 +4,18 @@
       <div class="form-row">
         <div class="form-item">
           <label for="orderQ">Quantity of Packages</label>
-          <input type="integer" class="form-control" id="orderQ" name="orderQ">
+          <input type="integer" class="form-control" id="orderQ" name="orderQ" required>
         </div>
       </div>
       <input hidden type="integer" class="form-control" id="itemId" name="itemId" value="<%= item.id %>">
       <div class="form-row">
         <div class="form-item">
-          <label for="orderId">Get order-Id number from order-Id showpage</label>
-          <input type="integer" class="form-control" id="orderId" name="orderId">
+          <label for="orderId">Input Order Id Number</label>
+          <h3>Orders:</h3>
+          <% order.forEach((ord) => { %>
+              <p><%= ord.orderName %> with order id no: <%= ord.id %> </p>
+          <% }) %>  
+          <input type="integer" class="form-control" id="orderId" name="orderId" required>
         </div>
       </div>
       <div class="btn-row">

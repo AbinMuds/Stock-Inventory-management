@@ -3,7 +3,7 @@
   <div class="form-row">
     <div class="form-item">
       <label for="name"></label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Item Name" value="<%= item.name %>">
+      <input type="text" class="form-control" id="name" name="name" value="<%= item.name %>" required>
     </div>
   </div>
   <div class="form-row">
@@ -11,38 +11,38 @@
   </div>
   <div class="form-row">
     <div class="">
-      <label for="itemimg">Choose Img</label>
-      <input type="file" class="form-control-file" name="itemimg" id="itemimg" value="<%= item.imageLink %>">
+      <label for="itemimg">Image</label>
+      <input type="file" class="form-control-file" name="itemimg" id="itemimg" value="<%= item.imageLink %>" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
-      <label for="quantityOfPackage">Package Quantity: </label>
-      <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage" value="<%= item.quantityOfPackage %>">
+      <label for="totalCP">Total CostPrice</label>
+      <input type="integer" class="form-control" id="totalCP" name="totalCP" value="<%= item.totalCP %>" required>
     </div>
     <div class="form-item">
-      <label for="quantityOfitemsPerPackage">Total Items in Packages: </label>
-      <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage" value="<%= item.quantityOfitemsPerPackage %>">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-item">
-      <label for="totalCP">Total CP: </label>
-      <input type="integer" class="form-control" id="totalCP" name="totalCP" value="<%= item.totalCP %>">
-    </div>
-    <div class="form-item">
-      <label for="sellingPricePerPackage">SP per Package: </label>
-      <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage" value="<%= item.sellingPricePerPackage %>">
+      <label for="costPricePerPackage">CostPrice/Package</label>
+      <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage" value="<%= item.costPricePerPackage %>" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
-      <label for="sellingPricePerItem">SP per Item: </label>
-      <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem" value="<%= item.sellingPricePerItem %>">
+      <label for="quantityOfPackage">Package Quantity</label>
+      <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage" value="<%= item.quantityOfPackage %>" required>
     </div>
     <div class="form-item">
-      <label for="costPricePerPackage">CP per Package: </label>
-      <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage" value="<%= item.costPricePerPackage %>">
+      <label for="sellingPricePerPackage">SellingPrice/Package</label>
+      <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage" value="<%= item.sellingPricePerPackage %>" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label for="quantityOfitemsPerPackage">Items/Packages: </label>
+      <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage" value="<%= item.quantityOfitemsPerPackage %>" required>
+    </div>
+    <div class="form-item">
+      <label for="sellingPricePerItem">SellingPrice/Item: </label>
+      <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem" value="<%= item.sellingPricePerItem %>" required>
     </div>
   </div>
   <button type="submit" id="button" class="btn btn-primary">Edit</button>
