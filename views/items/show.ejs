@@ -13,7 +13,7 @@
                 <p class="">SP per Item: <%= item.sellingPricePerItem %></p>
                 <p class="">CP per Package: <%= item.costPricePerPackage %></p>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">Delete</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
                 <form method="GET" action="/business/<%= profile.id %>/items/edit/<%=item.id%>/?_method=PUT" class="p-2">
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </form>
@@ -23,7 +23,9 @@
                         <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Are you sure to delete?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                         </div>
