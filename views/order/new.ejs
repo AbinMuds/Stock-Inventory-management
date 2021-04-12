@@ -1,23 +1,22 @@
-
 <form action="/order/new" method="POST" class="oform">
   <h3 class="welcome-login-message">Welcome</h3>
   <p class="welcome-login-sign-in">Start a order</p>
   <div class="form-row">
     <div class="form-item">
       <label for="orderName">OrderName</label>
-      <input type="text" class="form-control" id="name" name="orderName">
+      <input type="text" class="form-control" id="name" name="orderName" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
       <label for="orderFrom">Order From</label>
-      <input type="text" class="form-control" id="orderFrom" name="orderFrom">
+      <input type="text" class="form-control" id="orderFrom" name="orderFrom" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
       <label for="orderTo">Business</label>
-      <input type="text" class="form-control" id="orderTo" name="orderTo">
+      <input type="text" class="form-control" id="orderTo" name="orderTo" required>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Create</button>

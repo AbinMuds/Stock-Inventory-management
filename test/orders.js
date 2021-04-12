@@ -80,3 +80,65 @@
     //         console.log(totalPrice)
     //     })
     // })
+
+
+// Reduce the itemquantity if order is made
+// Requirements: orderitems : can be accessed from order.getItems, item.itemOrders.itemQuantity, item.quantity
+// router.put('', (req,res) => {
+//     db.order.findOne({
+//         where: {id:req.params.id}
+//     }).then((order) => {
+//         order.getItems().then((item) => {
+//             item.update(
+//                 {
+//                 quantityOfPackage:req.body.quantityOfPackage
+//                 },
+//                 {where: {id:req.params.id}}
+//             ).then((updated) => {
+//                 req.flash('success', 'item quantity updated!')
+//                 res.redirect("/")
+//             })
+//         })
+//     })
+// })
+// so we are asking for quantity of packages , we need a input hidden with updated quantity
+
+// now get
+
+// router.get('/:id/itemupdate' , (req,res) => {
+//     db.order.findOne({
+//         where: {id:req.params.id}
+//     }).then((order) => {
+//         res.render('order/quantityUpdate' ,{order:order})
+//     })
+// })
+
+// router.put('/:id/itemupdate', (req,res)=>{
+//     let qvalue = []
+//     let qkey = []
+//     db.order.findOne({ where:{
+//       id: req.params.id
+//     }}).then((order) => {
+//         order.getItems().then((item) => {
+//           item.forEach((item) => {
+//             let x = item.dataValues
+//             total_price += x.sellingPricePerPackage * x.itemsOrders.dataValues.itemQuantity
+//             qvalue.push(x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity)
+//             qkey.push(item.dataValues.id)
+//             if (x.quantityOfPackage < x.itemsOrders.dataValues.itemQuantity) {
+//                 req.flash('success', 'Quantity is less in the inventory,Try ording less Packages')
+//                 res.redirect(`/order/${req.params.id}`)
+//             }
+//             item.update(
+//                 {quantityOfPackage:req.body.quantityOfPackage},
+//                 {where: {id:item.id}}
+//                 ).then((updated) => {
+//                     req.flash('success', 'item quantity updated!')
+//                     res.redirect("/")
+//                 })
+//             })
+//           res.render('order/orderUpdateForm',{order:order,qvalue,qkey})
+//         })
+//     })
+//   })
+  

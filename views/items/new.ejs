@@ -3,43 +3,43 @@
   <div class="form-row">
     <div class="form-item">
       <label for="name"></label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Item Name">
+      <input type="text" class="form-control" id="name" name="name" required>
     </div>
   </div>
   <div class="form-row">
     <div class="">
-      <label for="itemimg">Img</label>
-      <input type="file" class="form-control-file" name="itemimg" id="itemimg">
+      <label for="itemimg">Image</label>
+      <input type="file" class="form-control-file" name="itemimg" id="itemimg" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
-      <label for="quantityOfPackage">Package Quantity: </label>
-      <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage">
+      <label for="totalCP">Total CostPrice </label>
+      <input type="integer" class="form-control" id="totalCP" name="totalCP" required>
     </div>
     <div class="form-item">
-      <label for="quantityOfitemsPerPackage">Total Items in Packages: </label>
-      <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-item">
-      <label for="totalCP">Total CP: </label>
-      <input type="integer" class="form-control" id="totalCP" name="totalCP">
-    </div>
-    <div class="form-item">
-      <label for="sellingPricePerPackage">SP per Package: </label>
-      <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage">
+      <label for="costPricePerPackage">CostPrice/Package </label>
+      <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
-      <label for="sellingPricePerItem">SP per Item: </label>
-      <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem">
+      <label for="quantityOfPackage">Package Quantity </label>
+      <input type="integer" class="form-control" id="quantityOfPackage" name="quantityOfPackage" required>
     </div>
     <div class="form-item">
-      <label for="costPricePerPackage">CP per Package: </label>
-      <input type="integer" class="form-control" id="costPricePerPackage" name="costPricePerPackage">
+      <label for="sellingPricePerPackage">SellingPrice/Package </label>
+      <input type="integer" class="form-control" id="sellingPricePerPackage" name="sellingPricePerPackage" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label for="quantityOfitemsPerPackage">Items/Packages </label>
+      <input type="integer" class="form-control" id="quantityOfitemsPerPackage" name="quantityOfitemsPerPackage" required>
+    </div>
+    <div class="form-item">
+      <label for="sellingPricePerItem">SellingPrice/Item </label>
+      <input type="integer" class="form-control" id="sellingPricePerItem" name="sellingPricePerItem" required>
     </div>
   </div> 
   <button type="submit" id="login-button" class="btn btn-primary">Add</button>

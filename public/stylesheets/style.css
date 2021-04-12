@@ -83,26 +83,10 @@ p:hover{
   color:rgb(17, 206, 77);
 }
 
-/* .d-block{
-  height: 500px;
-} */
-
-
-/* footer.page-footer {
-  background: rgba(0, 0, 0, 0.2);
-  margin-bottom: 0;
-  text-align: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('/images/background.jpg');
-} */
-
-/* @media only screen and (max-width: 600px) {
-  label, h2, h3, p, h3, input, th, tr, td{
-    font-size:var(--font-size);
-  }
-} */
-
 .display-4{
   font-size:2em;
+}
+
+@media only screen and (max-width: 600px) {
+  
 }
