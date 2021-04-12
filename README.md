@@ -51,7 +51,7 @@
 
 **Business page**
 
-<img src="businessshow/.png">
+<img src="media/businessshow/.png">
 
 **Business Form page**
 
