@@ -26,23 +26,6 @@
 9. As a user, user can see the bills of sales if the order is complete with the total price earned from that order.
 10. As a user, users can have all CRUD functionaliy to manage the order,items,business,etc.
 
-### Sprint 2: CRUD
-**A user should be able to:**
-1. View a single review page (at "/reviews/1") including:
-- The review title.
-- The rating of the product.
-- At least one high quality image of the product being reviewed.
-2. View a list of reviews on the Home page:
-- Sorted by newest first.
-- With the review titles linked to the individual review "show" pages.
-3. Use an "Add Comment" button on a single review page to pull up the new comment form.
-4. Create a new comment for a review.
-5. Click "Edit" on ANY individual comment, and be redirected to the edit form.
-6. Click "delete" on ANY individual comment, then:
-- See a pop-up that says: "Are you sure you want to delete this comment?"
-- If the user confirms, delete the comment.
-
-
 ## Wireframes:
 
 **Homepage**
@@ -51,7 +34,7 @@
 
 **Business page**
 
-<img src="media/businessshow/.png">
+<img src="media/businessshow.png">
 
 **Business Form page**
 
