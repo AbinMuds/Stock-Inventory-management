@@ -1,7 +1,6 @@
 const express = require("express")
 const router = express.Router()
 const db = require('../models')
-const itemsorders = require("../models/itemsorders")
 
 // All order route
 router.get('/', (req,res) => {
@@ -122,9 +121,6 @@ router.get('/:id/complete', (req,res)=>{
   }}).then((order) => {
       order.getItems().then((item) => {
         let y = true
-        console.log('------------------------')
-        console.log(item)
-        console.log('------------------------')
         item.forEach((item) => {
           let x = item.dataValues
           total_price += x.sellingPricePerPackage * x.itemsOrders.dataValues.itemQuantity
@@ -133,32 +129,17 @@ router.get('/:id/complete', (req,res)=>{
           let qvalue = x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity
           let qkey = item.dataValues.id
           propAndValAdder(qkey,qvalue)
-          // quantArr = qvalue
-          // quantArr.value = qvalue
           if (x.quantityOfPackage < x.itemsOrders.dataValues.itemQuantity) {
               req.flash('success', 'Quantity is less in the inventory,Try ording less Packages')
               res.redirect(`/order/${req.params.id}`)
           }
         })
-        console.log('------------------------')
-        console.log(quantArr)
-        console.log('------------------------')
         res.render('order/orderForm',{total_price:total_price,y:y,order:order,quantArr:quantArr})
-        console.log(total_price)
-        // res.render('order/show',{total_price:total_price})
       })
-      console.log("outside items ==dont get this value")
   })
-  console.log('------------------------')
 })
 
 router.put('/:id/ready',(req,res)=> {
-    let quantArr = {}
-    function propAndValAdder(){
-      for (var i = 0; i < arguments.length; i+=2) {
-          quantArr[arguments[i]] = arguments[i + 1];
-      }
-    }
     db.order.update(
       {
         complete: req.body.complete,
@@ -167,28 +148,9 @@ router.put('/:id/ready',(req,res)=> {
       {where: {id:req.params.id}}
     ).then((updated) => {
         req.flash('success', 'Order Complete!')
-        res.redirect("/order")
+        res.redirect(`/order/${req.params.id}`)
     })
 })
-
-// router.get('order/:id/quantityupdate')
-// router.put('order/:id/quantityupdate')
-
-// db.order.findOne({
-//   where :{
-//     id: req.params.id
-//   }.then((order) => {
-//       order.getItems().then((item) => {
-//         item.forEach((item) => {
-//           let x = item.dataValues
-//           let qvalue = x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity
-//           let qkey = item.dataValues.id
-//           propAndValAdder(qkey,qvalue)
-//         })
-//           res.render('order/quantityUpdate',{quantArr:quantArr})
-//       })
-//   })
-// })
 
 router.delete('/:pk/item/:id/delete' , (req, res) => {
     db.itemsOrders.destroy({
@@ -208,5 +170,43 @@ router.delete('/:id/delete',(req, res) => {
       res.redirect(`/order`)
     })
 })
+
+router.get('/:id/itemupdate' , (req,res) => {
+  db.order.findOne({
+      where: {id:req.params.id}
+  }).then((order) => {
+      res.render('order/quantityUpdate' ,{order:order})
+  })
+})
+
+router.put('/:id/itemupdate', (req,res)=>{
+  let qvalue = []
+  let qkey = []
+  db.order.findOne({ where:{
+    id: req.params.id
+  }}).then((order) => {
+      order.getItems().then((item) => {
+        item.forEach((item) => {
+          let x = item.dataValues
+          qvalue.push(x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity)
+          qkey.push(item.dataValues.id)
+          let qdiff = x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity
+          if (x.quantityOfPackage < x.itemsOrders.dataValues.itemQuantity) {
+              req.flash('success', 'Quantity is less in the inventory,Try ording less Packages')
+              res.redirect(`/order/${req.params.id}`)
+          }
+          item.update(
+              {quantityOfPackage:qdiff},
+              {where: {id:item.id}}
+              ).then((updated) => {
+                  req.flash('success', 'item quantity updated!')
+                  res.redirect("/")
+              })
+          })
+        res.redirect(`/order/${req.params.id}`)
+      })
+  })
+})
+
 
 module.exports = router;
