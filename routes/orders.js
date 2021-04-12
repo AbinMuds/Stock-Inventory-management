@@ -41,11 +41,11 @@ router.post('/new', (req, res)=>{
             })
         }).catch((err) => {
             res.status(400).render('404')
-            console.log(err)
         })
     })
 })
 
+// order show page route
 router.get('/:id', (req,res) => {
   db.order.findOne({
       where:{
@@ -58,10 +58,10 @@ router.get('/:id', (req,res) => {
       })
   }).catch((error)=>{
       res.status(400).render('404')
-      console.log(error)
   })
 })
 
+// itemsOrders form 
 router.get('/items/:id', (req,res)=> {
     db.item.findOne({
         where: {
@@ -80,6 +80,7 @@ router.get('/items/:id', (req,res)=> {
     })
 })
 
+// order show page with order items
 router.post('/items/:id', (req,res)=> {
   db.item.findOne({
     where: {
@@ -103,19 +104,12 @@ router.post('/items/:id', (req,res)=> {
     })
   }).catch((error)=>{
     res.status(400).render('404')
-    console.log(error)
   })
 })
 
-
+// when order is complete route for form
 router.get('/:id/complete', (req,res)=>{
   let total_price = null
-  let quantArr = {}
-  function propAndValAdder(){
-    for (var i = 0; i < arguments.length; i+=2) {
-        quantArr[arguments[i]] = arguments[i + 1];
-    }
-  }
   db.order.findOne({ where:{
     id: req.params.id
   }}).then((order) => {
@@ -124,21 +118,17 @@ router.get('/:id/complete', (req,res)=>{
         item.forEach((item) => {
           let x = item.dataValues
           total_price += x.sellingPricePerPackage * x.itemsOrders.dataValues.itemQuantity
-          console.log(x.quantityOfPackage)
-
-          let qvalue = x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity
-          let qkey = item.dataValues.id
-          propAndValAdder(qkey,qvalue)
           if (x.quantityOfPackage < x.itemsOrders.dataValues.itemQuantity) {
               req.flash('success', 'Quantity is less in the inventory,Try ording less Packages')
               res.redirect(`/order/${req.params.id}`)
           }
         })
-        res.render('order/orderForm',{total_price:total_price,y:y,order:order,quantArr:quantArr})
+        res.render('order/orderForm',{total_price:total_price,y:y,order:order})
       })
   })
 })
 
+// update the order complete status and adds totalprice to order
 router.put('/:id/ready',(req,res)=> {
     db.order.update(
       {
@@ -152,6 +142,7 @@ router.put('/:id/ready',(req,res)=> {
     })
 })
 
+//items delete route in order page
 router.delete('/:pk/item/:id/delete' , (req, res) => {
     db.itemsOrders.destroy({
       where:{itemId: req.params.id}
@@ -161,6 +152,7 @@ router.delete('/:pk/item/:id/delete' , (req, res) => {
     })
 })
 
+// order delete route 
 router.delete('/:id/delete',(req, res) => {
     db.order.destroy({
       where:{id:req.params.id
@@ -171,6 +163,7 @@ router.delete('/:id/delete',(req, res) => {
     })
 })
 
+// update quantityOfPackage route
 router.get('/:id/itemupdate' , (req,res) => {
   db.order.findOne({
       where: {id:req.params.id}
@@ -179,17 +172,14 @@ router.get('/:id/itemupdate' , (req,res) => {
   })
 })
 
+// Updates items quantity
 router.put('/:id/itemupdate', (req,res)=>{
-  let qvalue = []
-  let qkey = []
   db.order.findOne({ where:{
     id: req.params.id
   }}).then((order) => {
       order.getItems().then((item) => {
         item.forEach((item) => {
           let x = item.dataValues
-          qvalue.push(x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity)
-          qkey.push(item.dataValues.id)
           let qdiff = x.quantityOfPackage - x.itemsOrders.dataValues.itemQuantity
           if (x.quantityOfPackage < x.itemsOrders.dataValues.itemQuantity) {
               req.flash('success', 'Quantity is less in the inventory,Try ording less Packages')

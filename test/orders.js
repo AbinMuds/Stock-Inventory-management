@@ -1,9 +1,5 @@
 //add to order buttton in the items 
 
-const db = require("../models")
-const { get } = require("../routes/orders")
-const router = require("../routes/orders")
-
 // const db = require("../models");
 // const { route } = require("../routes/orders");
 // const router = require("../routes/orders");

@@ -24,7 +24,6 @@ router.post('/:id/new', (req, res)=>{
                 console.log("Image uploaded")
             }
         })
-        console.log(itemimage)
       db.item.create({
               name: req.body.name,
               imageLink: itemimage.name,
@@ -42,7 +41,6 @@ router.post('/:id/new', (req, res)=>{
           })
       }).catch((err) => {
           res.status(400).render('404')
-          console.log(err)
       })
   })
 })
@@ -58,10 +56,10 @@ router.get('/:id', (req,res) => {
         res.render("business/show",{items:profile.items,profile:profile})
     }).catch((error)=>{
         res.status(400).render('404')
-        console.log(error)
     })
   })
 
+// business delete route
 router.get('/delete/:id', (req,res) => {
     db.profile.findOne({
         where:{
@@ -75,6 +73,7 @@ router.get('/delete/:id', (req,res) => {
     })
 })
 
+// delete action
 router.delete('/:id', (req,res) => {
     db.profile.destroy({
         where: {
@@ -92,12 +91,10 @@ router.delete('/:id', (req,res) => {
         })
         }).catch((error)=>{
             res.status(400).render('404')
-            console.log(error)
     })
 })
 
-
-
+// Business ITems showpage
 router.get('/:id/items/:pk',(req,res) =>{
     db.profile.findOne({
         where: {
@@ -114,6 +111,7 @@ router.get('/:id/items/:pk',(req,res) =>{
     })
 })
 
+// Items delete Route
 router.delete('/:id/items/:pk', (req,res) => {
     db.item.destroy({
         where: {
@@ -125,6 +123,7 @@ router.delete('/:id/items/:pk', (req,res) => {
     })
 })
 
+// Items edit form route
 router.get('/:id/items/edit/:pk', (req,res)=> {
     db.item.findOne({
         where: {
@@ -135,7 +134,7 @@ router.get('/:id/items/edit/:pk', (req,res)=> {
     })
 })
 
-
+// Items edit action route
 router.put('/:id/items/:pk', (req,res)=>{
     const itemimage = req.files.itemimg;
 
@@ -165,7 +164,6 @@ router.put('/:id/items/:pk', (req,res)=>{
        res.redirect(`/business/${req.params.id}/items/${req.params.pk}`)
    }).catch((error)=>{
     res.status(400).render('404')
-    console.log(error)
     })
 })
 

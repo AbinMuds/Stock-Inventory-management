@@ -1,7 +1,6 @@
 const express = require("express")
 const router = express.Router()
 const db = require('../models')
-// const Profile = new db.profile()
 
 // All business route
 router.get('/', (req,res) => {
@@ -57,6 +56,7 @@ router.post('/new', (req, res)=>{
     })
 })
 
+// edit form page for business details
 router.get('/:id/edit', (req,res) => {
     db.profile.findOne({
         where: {
@@ -67,6 +67,7 @@ router.get('/:id/edit', (req,res) => {
     })
 })
 
+// edit business details
 router.put('/:id', (req,res) => {
     const businessimage = req.files.businessimg;
 
