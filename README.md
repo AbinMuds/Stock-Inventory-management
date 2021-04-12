@@ -46,18 +46,12 @@
 ## Wireframes:
 
 **Homepage**
-<div>
-	<img src="media/homepage.png">
-	<img src="media/businessshow.png">
-	<img src="media/businessform.png">
-	<img src="media/itemsform.png">
-	<img src="media/itemsshow.png">
-</div>
 
+<img src="media/homepage.png">
 
 **Business page**
 
-<img src="media/businessshow.png">
+<img src="media/businessshow/.png">
 
 **Business Form page**
 
@@ -70,4 +64,11 @@
 **Items page**
 
 <img src="media/itemsshow.png">
+
+**ERD**
+
+<img src="media/1sterd.png">
+<img src="media/2nderd.png">
+
+
 
