@@ -69,7 +69,15 @@ router.get('/items/:id', (req,res)=> {
             id: req.params.id
         }
     }).then((item)=> {
-        res.render('order/itemOrderForm',{item:item})
+        db.user.findOne({
+          where:{
+            id:req.user.id
+          }
+        }).then((user) => {
+          user.getOrders().then((order) => {
+              res.render('order/itemOrderForm',{item:item,order:order})
+          })
+        })
     })
 })
 
