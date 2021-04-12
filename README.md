@@ -46,8 +46,14 @@
 ## Wireframes:
 
 **Homepage**
+<div>
+	<img src="media/homepage.png">
+	<img src="media/businessshow.png">
+	<img src="media/businessform.png">
+	<img src="media/itemsform.png">
+	<img src="media/itemsshow.png">
+</div>
 
-<img src="media/homepage.png">
 
 **Business page**
 
