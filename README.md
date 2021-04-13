@@ -1,7 +1,7 @@
 # Project name: Stock Pile
 
 ## Project link: 
-........
+https://business-stockpile.herokuapp.com/
 
 ## Project description:
 **Stock Pile** is an Inventory management type of website where the user is supposed to be a business user that uses an app to add goods to the database and manage the quantity of the goods. When a user has to manage lots of items in the stock and if needed to track the quantity of the items, so that they are ready for the sale for the week, this apps solves that problem. This app helps to track the quantity of the items and just before sale gives a message that there is a limited quantity for certain items and also helps organize the items in the stock.
